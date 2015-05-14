@@ -63,13 +63,35 @@ public class CollectionTest {
 		}
 	}
 	
-	
+	public void testSort3(){
+		List<Student> studentList = new ArrayList<Student>();
+		Random random = new Random();
+		studentList.add(new Student(random.nextInt(1000) + "","Mike"));
+		studentList.add(new Student(random.nextInt(1000) + "","Angela"));
+		studentList.add(new Student(random.nextInt(1000) + "","Beyonce"));
+		studentList.add(new Student(10000 + "","Lucy"));
+		System.out.println("---------排序前------------");
+		for(Student student:studentList){
+			System.out.println("学生： " + student.id + ":" + student.name);
+		}
+		Collections.sort(studentList);
+		System.out.println("---------排序后------------");
+		for(Student student:studentList){
+			System.out.println("学生： " + student.id + ":" + student.name);
+		}
+		Collections.sort(studentList,new StudentComparator());
+		System.out.println("---------按照姓名排序后------------");
+		for(Student student:studentList){
+			System.out.println("学生： " + student.id + ":" + student.name);
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		CollectionTest ct = new CollectionTest();
-		ct.testSort1();
-		ct.testSort2();
+//		ct.testSort1();
+//		ct.testSort2();
+		ct.testSort3();
 	}
 
 }
